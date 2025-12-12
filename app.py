@@ -77,7 +77,7 @@ def webhook():
                     return "ok"
 
                 genai.configure(api_key=GEMINI_API_KEY)
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel('gemini-2.5-flash')
                 res = model.generate_content(f"{PROMPT_CORRECT}\nInput: {original_text}")
                 
                 edit_message(chat_id, msg_id, f"📝 {original_text}\n\n🎓 {res.text}")
@@ -100,7 +100,7 @@ def webhook():
                 msg_id = wait['result']['message_id']
                 
                 genai.configure(api_key=GEMINI_API_KEY)
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel('gemini-2.5-flash')
                 
                 fpath = get_file_path(msg['voice']['file_id'])
                 if fpath:
